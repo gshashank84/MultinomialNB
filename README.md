@@ -5,3 +5,8 @@
 - Total Columns = 23
 - Training data size taken = 6093
 - Testing data size = 2031
+
+
+#### Here is the IPython Notebook ->  [Click Here](https://github.com/gshashank84/MultinomialNB/blob/main/Multinomial_Naive_Bayes_Classification.ipynb)
+
+#### Here is the .py File ->  [Click Here](https://github.com/gshashank84/MultinomialNB/blob/main/Multinomial%20Naive%20Bayes%20Classification%20Assignment.py)
