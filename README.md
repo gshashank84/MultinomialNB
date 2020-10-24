@@ -13,3 +13,18 @@
 #### Here is the .ipynb file ->  [Click Here](https://github.com/gshashank84/MultinomialNB/blob/main/Multinomial_Naive_Bayes_Classification.ipynb)
 
 #### Here is the .py file ->  [Click Here](https://github.com/gshashank84/MultinomialNB/blob/main/Multinomial%20Naive%20Bayes%20Classification%20Assignment.py)
+
+
+## GaussianNB
+### GaussianNB Naive Bayes Classification on Tumor.csv dataset (from scratch)
+
+- Total Size of Data = 569
+- Total Columns = 33
+- Training data size taken = 426
+- Testing data size = 126
+
+
+
+#### Here is the .ipynb file ->  [Click Here](https://github.com/gshashank84/NB/blob/main/Naive_Bayes_Classification.ipynb)
+
+#### Here is the .py file ->  [Click Here]()
