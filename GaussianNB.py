@@ -222,3 +222,38 @@ class NB:
         return tp / (tp+fn)
                 
 
+
+if __name__ == "__main__":
+    data = pd.read_csv('tumor.csv')
+    
+    ind = list(data.index)
+    np.random.shuffle(ind)
+    
+    train_len = int(data.shape[0]*0.75)
+    train_ind = ind[:train_len]
+    training_data = data.iloc[train_ind,:]
+    
+    test_ind = ind[train_len:]
+    testing_data = data.iloc[test_ind,:]
+    
+    print('Training_data size -> {}'.format(training_data.shape))
+    print('Testing_data size -> {}'.format(testing_data.shape))
+    
+    assert data.shape[0] ==  len(train_ind)+ len(test_ind), 'Not equal distribution'
+    
+    training_data.drop(columns=[data.columns[0],data.columns[-1]], inplace=True)
+    testing_data.drop(columns=[data.columns[0],data.columns[-1]], inplace=True)
+    
+    genx = NB(target='diagnosis',dataframe=training_data)
+    
+    y_test = list(testing_data.iloc[:,0])
+    y_pred = genx.predict(testing_data.iloc[:,1:])
+    #print(y_test)
+    #print(y_pred)
+    
+    print('Accuracy Score -> {} %'.format(round(genx.accuracy_score(y_test,y_pred),3)))
+    print('Precison Score -> {}'.format(round(genx.precision_score(y_test,y_pred),3)))
+    print('Recall Score -> {}'.format(round(genx.recall_score(y_test,y_pred),3)))
+    
+
+
