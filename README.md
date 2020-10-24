@@ -3,7 +3,7 @@
 
 ## Naive Bayes Classification on both Continuous & Discrete Random Variables
 
-#### Here is the NB_main.py file ->  [Click Here](https://github.com/gshashank84/NB/blob/main/NB_main.py)
+#### Here is the main.py file ->  [Click Here](https://github.com/gshashank84/NB/blob/main/NB_main.py)
 
 ## MultinomialNB
 ### Multinomial Naive Bayes Classification on Mushroom.csv dataset (from scratch)
