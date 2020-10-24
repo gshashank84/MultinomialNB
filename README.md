@@ -1,30 +1,21 @@
 # Naive Bayes (Using NumPy and Pandas only)
 
 
+## Naive Bayes Classification on both Continuous & Discrete Random Variables
+
+#### Here is the NB_main.py file ->  [Click Here](https://github.com/gshashank84/NB/blob/main/NB_main.py)
+
 ## MultinomialNB
 ### Multinomial Naive Bayes Classification on Mushroom.csv dataset (from scratch)
 
-- Total Size of Data = 8124
-- Total Columns = 23
-- Training data size taken = 6093
-- Testing data size = 2031
-
-
 #### Here is the .ipynb file ->  [Click Here](https://github.com/gshashank84/MultinomialNB/blob/main/Multinomial_Naive_Bayes_Classification.ipynb)
 
-#### Here is the .py file ->  [Click Here](https://github.com/gshashank84/MultinomialNB/blob/main/Multinomial%20Naive%20Bayes%20Classification%20Assignment.py)
+#### Here is the Multinomial.py file ->  [Click Here](https://github.com/gshashank84/MultinomialNB/blob/main/Multinomial%20Naive%20Bayes%20Classification%20Assignment.py)
 
 
 ## GaussianNB
 ### GaussianNB Naive Bayes Classification on Tumor.csv dataset (from scratch)
 
-- Total Size of Data = 569
-- Total Columns = 33
-- Training data size taken = 426
-- Testing data size = 126
-
-
-
 #### Here is the .ipynb file ->  [Click Here](https://github.com/gshashank84/NB/blob/main/Naive_Bayes_Classification.ipynb)
 
-#### Here is the .py file ->  [Click Here](https://github.com/gshashank84/NB/blob/main/NB_main.py)
+
