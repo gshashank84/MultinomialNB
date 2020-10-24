@@ -27,4 +27,4 @@
 
 #### Here is the .ipynb file ->  [Click Here](https://github.com/gshashank84/NB/blob/main/Naive_Bayes_Classification.ipynb)
 
-#### Here is the .py file ->  [Click Here]()
+#### Here is the .py file ->  [Click Here](https://github.com/gshashank84/NB/blob/main/NB_main.py)
