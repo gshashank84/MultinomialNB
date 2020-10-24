@@ -1,4 +1,7 @@
-# MultinomialNB
+# Naive Bayes (Using NumPy and Pandas only)
+
+
+## MultinomialNB
 ### Multinomial Naive Bayes Classification on Mushroom.csv dataset (from scratch)
 
 - Total Size of Data = 8124
