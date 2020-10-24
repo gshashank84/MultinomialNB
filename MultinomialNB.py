@@ -1,59 +1,5 @@
-
-# coding: utf-8
-
-# In[1]:
-
-
 import pandas as pd
 import numpy as np
-
-
-# In[2]:
-
-
-data = pd.read_csv('mushrooms.csv')
-
-
-# In[3]:
-
-
-#data.head()
-
-
-# In[4]:
-
-
-data['class'].unique()
-
-
-# In[5]:
-
-
-ind = list(data.index)
-np.random.shuffle(ind)
-
-train_len = int(data.shape[0]*0.75)
-train_ind = ind[:train_len]
-training_data = data.iloc[train_ind,:]
-#training_data.head()
-
-test_ind = ind[train_len:]
-testing_data = data.iloc[test_ind,:]
-#testing_data.head()
-
-print('Training_data size -> {}'.format(training_data.shape))
-print('Testing_data size -> {}'.format(testing_data.shape))
-
-assert data.shape[0] ==  len(train_ind)+ len(test_ind), 'Not equal distribution'
-
-
-# \begin{equation}
-# P(Cap-shape \cap Cap-surface \cap ......\cap habitat | Class = p)\\[10pt]
-# P(Cap-shape \cap Cap-surface \cap ......\cap habitat | Class = e)
-# \end{equation}
-
-# In[6]:
-
 
 class NB:
     def __init__(self, target, dataframe):
@@ -215,31 +161,33 @@ class NB:
                 
 
 
-# In[7]:
+if __name__ == "__main__":
+    data = pd.read_csv('mushrooms.csv')
+    
+    ind = list(data.index)
+    np.random.shuffle(ind)
+    
+    # Train:Test = 75%:25%
+    train_len = int(data.shape[0]*0.75)
+    train_ind = ind[:train_len]
+    training_data = data.iloc[train_ind,:]
 
+    test_ind = ind[train_len:]
+    testing_data = data.iloc[test_ind,:]
 
-genx = NB(target='class',dataframe=training_data)
+    print('Training_data size -> {}'.format(training_data.shape))
+    print('Testing_data size -> {}'.format(testing_data.shape))
 
+    assert data.shape[0] ==  len(train_ind)+ len(test_ind), 'Not equal distribution'
+    
+    genx = NB(target='class',dataframe=training_data)
+    
+    y_test = list(testing_data.iloc[:,0])
+    y_pred = genx.predict(testing_data.iloc[:,1:])
+    #print(y_test)
+    #print(y_pred)
 
-# In[8]:
-
-
-#testing_data.head()
-
-
-# In[9]:
-
-
-y_test = list(testing_data.iloc[:,0])
-y_pred = genx.predict(testing_data.iloc[:,1:])
-#print(y_test)
-#print(y_pred)
-
-
-# In[10]:
-
-
-print('Accuracy Score -> {} %'.format(round(genx.accuracy_score(y_test,y_pred),3)))
-print('Precison Score -> {}'.format(round(genx.precision_score(y_test,y_pred),3)))
-print('Recall Score -> {}'.format(round(genx.recall_score(y_test,y_pred),3)))
+    print('Accuracy Score -> {} %'.format(round(genx.accuracy_score(y_test,y_pred),3)))
+    print('Precison Score -> {}'.format(round(genx.precision_score(y_test,y_pred),3)))
+    print('Recall Score -> {}'.format(round(genx.recall_score(y_test,y_pred),3)))
 
