@@ -2,9 +2,6 @@ import pandas as pd
 import numpy as np
 
 
-
-
-
 class NB:
     def __init__(self, target, dataframe):
         self.df = dataframe
