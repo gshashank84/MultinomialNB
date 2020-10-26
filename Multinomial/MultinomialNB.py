@@ -162,7 +162,7 @@ class NB:
 
 
 if __name__ == "__main__":
-    data = pd.read_csv('mushrooms.csv')
+    data = pd.read_csv('../dataset/mushrooms.csv')
     
     ind = list(data.index)
     np.random.shuffle(ind)

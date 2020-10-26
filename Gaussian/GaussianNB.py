@@ -224,7 +224,7 @@ class NB:
 
 
 if __name__ == "__main__":
-    data = pd.read_csv('tumor.csv')
+    data = pd.read_csv('../dataset/tumor.csv')
     
     ind = list(data.index)
     np.random.shuffle(ind)
