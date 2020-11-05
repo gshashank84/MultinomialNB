@@ -229,6 +229,7 @@ if __name__ == "__main__":
     ind = list(data.index)
     np.random.shuffle(ind)
     
+    # Train:Test = 75%:25%
     train_len = int(data.shape[0]*0.75)
     train_ind = ind[:train_len]
     training_data = data.iloc[train_ind,:]
