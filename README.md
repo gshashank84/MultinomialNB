@@ -41,8 +41,7 @@ genx = NB(target='class',dataframe=training_data)
 
 y_test = list(testing_data.iloc[:,0])
 y_pred = genx.predict(testing_data.iloc[:,1:])
-#print(y_test)
-#print(y_pred)
+
 
 print('Accuracy Score -> {} %'.format(round(genx.accuracy_score(y_test,y_pred),3)))
 print('Precison Score -> {}'.format(round(genx.precision_score(y_test,y_pred),3)))
