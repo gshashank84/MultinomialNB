@@ -5,7 +5,7 @@
 - Used **Laplace Smoothing** to handle the unseen cases.
 - Supports datasets having **Multi-class**. 
 - **Confusion Matrix** supporting multi-class classification have been added.
-- Accuracy, Precision and Recall score metrics methods have been added.
+- **Accuracy**, **Precision** and **Recall** score metrics methods have been added.
 
 Here is the main.py file ->  [Click Here](https://github.com/gshashank84/NB/blob/main/NB_main.py)
 
