@@ -1,12 +1,10 @@
 ## Naive Bayes (Using NumPy and Pandas only)
 
-
-## Naive Bayes Classification on both Continuous & Discrete Random Variables
 - Implemented the classifier in Python using **hash tables** to store the likelihoods if the features are **continuous**.
 - Supports both **Continuous** and **Discrete** features.
 - Used **Laplace Smoothing** to handle the unseen cases.
 - Supports datasets having **Multi-class**. 
-- Confusion Matrix supporting multi-class classification have been added.
+- **Confusion Matrix** supporting multi-class classification have been added.
 - Accuracy, Precision and Recall score metrics methods have been added.
 
 Here is the main.py file ->  [Click Here](https://github.com/gshashank84/NB/blob/main/NB_main.py)
