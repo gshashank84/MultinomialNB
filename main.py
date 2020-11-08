@@ -19,6 +19,10 @@ class NB:
         self.store = {}
         self.discrete_likelihood_for_all()
         
+        #Calculating the means & standard-deviation for continuous features
+        self.mean_std = {}
+        self.sample_mean_std_cal()
+        
         
     def discrete_likelihood_cal(self, x, y, z):
         """ 
@@ -77,22 +81,46 @@ class NB:
         """
         
         self.rv = {x:self.determine_rv(x) for x in self.cols}
+        
+    def sample_mean_std_cal(self):
+        """
+        Calculates mean and variance of each combinations required.
+        And stores it in self.mean_std Dictionary for later use.
+        """
+        df = self.df
+        
+        continuous_cols = [x for x in self.cols if self.rv[x] == 'continuous']
+        
+        dict1 = {}
+        for column_name in continuous_cols:
+            dict2 = {}
+            for class_val in df[self.c_n].unique():
+                
+                sample = df[df[self.c_n] == class_val][column_name]
+                mu = np.mean(sample)
+                sigma = np.std(sample)
+                
+                dict2[class_val] = (mu, sigma)
+                
+            dict1[column_name] = dict2
+                
+        self.mean_std = dict1        
+            
 
-    def normal_pdf(self, sample, x=None):
-        mu = np.mean(sample)
-        sigma = np.std(sample)
-        if x == None:
-            x = sample
-
+    def normal_pdf(self, mu, sigma, x):
         expr = np.exp((-1/2)*(((x-mu)/sigma)**2))/(np.sqrt(2*np.pi*sigma))
         return expr
 
     def continuous_likelihood_cal(self, column_name, column_val, class_val):
         df = self.df
         
-        sample = df[df[self.c_n] == class_val][column_name]
-
-        return self.normal_pdf(sample, column_val)
+        #sample = df[df[self.c_n] == class_val][column_name]
+        #mu = np.mean(sample)
+        #sigma = np.std(sample)
+        
+        mu,sigma = self.mean_std[column_name][class_val]
+        
+        return self.normal_pdf(mu, sigma, column_val)
     
     def likelihood_expr(self, class_val, expr):
         val = 1  
