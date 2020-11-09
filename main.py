@@ -161,30 +161,28 @@ class NB:
         
         predictions_list = []
         for values in values_list:
-            likelihood_priors = {}
-            for class_val in df[self.c_n].unique():
-                likelihood_priors[class_val] = self.prior(class_val)*self.likelihood_expr(class_val,values)
-            #print(likelihood_priors)
             
-            normalizing_prob = np.sum([x for x in likelihood_priors.values()])
-            probabilities = [(y/normalizing_prob,x) for x,y in likelihood_priors.items()]
-            #print(probabilities)
+            likelihood_priors = np.zeros(len(df[self.c_n].unique()))
+            for i,class_val in enumerate(df[self.c_n].unique()):
+                likelihood_priors[i] = self.prior(class_val)*self.likelihood_expr(class_val,values)
+            #print("likelihood_priors",likelihood_priors)
+                    
+            normalizing_prob = np.sum(likelihood_priors)
+            probabilities = likelihood_priors/normalizing_prob
+            #print("probabilities",probabilities)
             
             if len(probabilities) == 2:
-                # For 2 Class Predictions
-                max_prob = max(probabilities)[1]
+                # For Binary Class Predictions
+                max_prob = df[self.c_n].unique()[np.argmax(probabilities)]
                 predictions_list.append(max_prob)
             
             else:
-                # For Mulit Class Predictions
-                exp_1 = [np.exp(x) for x,y in probabilities]
+                # For Mulit Class Predictions                
+                exp_1 = np.exp(probabilities)
                 exp_2 = np.sum(exp_1)
                 softmax = exp_1/exp_2
                 #print(softmax)
-                class_names = [y for x,y in probabilities]
-                softmax_values = [(x,y) for x,y in zip(softmax,class_names)]
-                #print(softmax_values)
-                max_prob = max(softmax_values)[1]
+                max_prob = df[self.c_n].unique()[np.argmax(softmax)]
                 predictions_list.append(max_prob)
         
         
