@@ -7,7 +7,7 @@
 - **Confusion Matrix** supporting multi-class classification have been added.
 - **Accuracy**, **Precision** and **Recall** score metrics methods have been added.
 
-Here is the main.py file ->  [Click Here](https://github.com/gshashank84/NB/blob/main/NB_main.py)
+[Click Here](https://github.com/gshashank84/NB/blob/main/NB_main.py) for the main.py file. 
 
 ## Dependencies
 - [Anaconda](https://www.anaconda.com/download) or [Miniconda](https://conda.io/en/latest/miniconda.html)
@@ -37,10 +37,10 @@ print('Testing_data size -> {}'.format(testing_data.shape))
 
 assert data.shape[0] ==  len(train_ind)+ len(test_ind), 'Not equal distribution'
 
-genx = NB(target='class',dataframe=training_data)
+classifier = NB(target='class',dataframe=training_data)
 
 y_test = list(testing_data.iloc[:,0])
-y_pred = genx.predict(testing_data.iloc[:,1:])
+y_pred = classifier.predict(testing_data.iloc[:,1:])
 
 
 print('Accuracy Score -> {} %'.format(round(genx.accuracy_score(y_test,y_pred),3)))
